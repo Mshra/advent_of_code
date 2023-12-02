@@ -1,5 +1,3 @@
-import sys
-
 def valid(game: str):
     hmap = {
         'red': 12,
