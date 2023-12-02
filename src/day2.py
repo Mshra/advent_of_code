@@ -1,8 +1,10 @@
-def valid(game: str):
+from sys import exit
+
+def power(game: str):
     hmap = {
-        'red': 12,
-        'green': 13,
-        'blue': 14
+        'red': 0,
+        'green': 0,
+        'blue': 0
     }
 
     game = game.split(':')
@@ -15,17 +17,18 @@ def valid(game: str):
         set = set.split(',')
         for ball in set:
             ball = ball.split()
-            if int(ball[0]) > hmap[ball[1]]:
-                return False
+            hmap[ball[1]] = max(int(ball[0]), hmap[ball[1]])
 
-    return True
+    return hmap
+
+def get_cubes(dict):
+    return dict['red']*dict['green']*dict['blue']
 
 with open('data/day2.txt') as file:
     file = file.readlines()
     ans = 0
 
     for id in range(len(file)):
-        if valid(file[id]):
-            ans += id + 1
-
+        ans += get_cubes(power(file[id]))
+    
     print(ans)
