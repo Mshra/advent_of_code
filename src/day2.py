@@ -22,7 +22,7 @@ def power(game: str):
     return hmap
 
 def get_cubes(dict):
-    return dict['red']*dict['green']*dict['blue']
+    return dict['red']*dict['green']*dict['blue'
 
 with open('data/day2.txt') as file:
     file = file.readlines()
