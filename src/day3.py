@@ -23,9 +23,12 @@ def find_number(schematic):
                 numbers.append(parse_number(schematic[i+1 : i+4]))
 
             # check diagonally(previous)
-            
-
+            for j in range(i - 9, i - 12, -1):
+                if schematic[j].isdigit():
+                    pass
             # check diagonally(after)
+
+            return sum(numbers)
 
 if __name__ == '__main__':
     with open('data/day3.txt', 'r') as file:
